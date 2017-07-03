@@ -1,0 +1,25 @@
+
+  <view>
+    
+  <view class="header">
+    <image mode="aspectFill" src="{{$header$img}}"/>
+    <view  wx:if="{{$header$text === $header$true}}}" class="title">
+      <text>极最科技</text>
+      <view>
+        <text class="sub-title">把你的想法雕琢成真</text>
+      </view>
+    </view>
+  </view>
+
+    
+  <text class="category-title">我们能开发</text>
+  <view class="category">
+    <block  wx:for-items="{{$category$cans}}" wx:key="id">
+      <view class="category-item">
+        <image mode="aspectFit" src="../assets/images/can-{{index}}.png"/>
+        <text>{{item}}</text>
+      </view>
+    </block>
+  </view>
+
+  </view>

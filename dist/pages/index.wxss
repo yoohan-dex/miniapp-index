@@ -1,0 +1,4 @@
+@import "./../components/category.wxss";
+@import "./../components/stage.wxss";
+@import "./../components/header.wxss";
+.userinfo{display:flex;flex-direction:column;align-items:center}.userinfo-avatar{width:80rpx;height:80rpx;border-radius:50%}.userinfo-nickname{color:#aaa}

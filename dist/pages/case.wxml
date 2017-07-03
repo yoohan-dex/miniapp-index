@@ -1,0 +1,11 @@
+
+  <view class="stage-title">
+    <text>{{cases[index]}}</text>
+  </view>
+  <swiper class="stage" bindchange="current">
+    <block  wx:for-items="{{cases}}" wx:key="id">
+      <swiper-item>
+        <view class="swiper-item"><image mode="aspectFill" src="../assets/images/case-{{index}}.png"/></view>      
+      </swiper-item>
+    </block>
+  </swiper>

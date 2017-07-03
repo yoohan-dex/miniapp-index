@@ -1,0 +1,16 @@
+
+    <view class="header">
+      <image mode="aspectFill" src="{{img}}"/>
+        
+    </view>
+    <view class="title">
+      <view bindtap="call">
+        <image class="icon" mode="aspectFill" src="../assets/images/phone.png"/>
+        <text>188 9857 9843</text>
+      </view>
+      <view>
+        <image class="icon" mode="aspectFill" src="../assets/images/map.png"/>
+        <text>广州天河区科学城彩频路6号凡岛2栋2楼极最科技</text>
+      </view>
+    </view>
+    <map class="map" latitude="23.1615800000" longitude="113.4330300000" markers="{{markers}}"/>

@@ -1,0 +1,99 @@
+<style lang="less">
+  .userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .userinfo-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-nickname {
+    color: #aaa;
+  }
+</style>
+<template>
+  <view>
+    <header />
+    <category />
+  </view>
+</template>
+
+<script>
+  
+  import wepy from 'wepy'
+  import Header from '../components/header'
+  import Stage from '../components/stage'
+  import Category from '../components/category'
+  // <view class="userinfo" @tap="handleViewTap">
+  //   <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
+  //   <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
+  // </view>
+  export default class Index extends wepy.page {
+    components = {
+      header: Header,
+      stage: Stage,
+      category: Category
+    }
+    config = {
+      navigationBarTitleText: '极最科技'
+    }
+
+    data = {
+      userInfo: {
+        nickName: '加载中...'
+      }
+    }
+
+    computed = {
+      now () {
+        return +new Date()
+      }
+    }
+
+    events = {
+      'index-emit': (...args) => {
+        let $event = args[args.length - 1]
+        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
+      }
+    }
+    onShareAppMessage(res) {
+      if (res.from === 'button') {
+      // 来自页面内转发按钮
+        console.log(res.target)
+      }
+      return {
+        title: '极最科技',
+        path: '/pages/index',
+        success: function(res) {
+          // 转发成功
+        },
+        fail: function(res) {
+          // 转发失败
+        }
+      }
+    }
+    async onLoad() {
+      let self = this
+      await wepy.login()
+      this.$parent.getUserInfo(userInfo => {
+        if (userInfo) {
+          self.userInfo = userInfo
+        }
+
+        self.normalTitle = 'ha?'
+
+        self.setTimeoutTitle = 'aaa'
+        setTimeout(() => {
+          self.setTimeoutTitle = 'lll'
+          self.$apply()
+        }, 3000)
+
+        self.$apply()
+      })
+    }
+  }
+</script>
