@@ -1,0 +1,26 @@
+
+  <view class="stage-title">
+    <image  wx:if="{{index > -1}}" mode="aspectFill" src="../assets/images/case-{{index}}.jpg"/>
+  </view>
+  <swiper class="stage" bindchange="current">
+    <block  wx:for="{{cases}}">
+      <swiper-item>
+        <view class="swiper-item">
+          <view class="card">
+            <view class="header">
+              <image class="logo" src="../assets/images/case-{{index}}.jpg"/>
+            </view>
+            <view class="card-content">
+              <view class="title">
+                <text>{{item.title}}</text>
+                <image class="wechat" mode="aspectFit" src="../assets/images/wechat.png"/>                
+              </view>
+              <view class="content">
+                <text>{{item.content}}</text>
+              </view>
+            </view>
+          </view>
+        </view>      
+      </swiper-item>
+    </block>
+  </swiper>

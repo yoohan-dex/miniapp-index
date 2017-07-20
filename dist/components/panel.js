@@ -21,13 +21,28 @@ var Panel = function (_wepy$component) {
   _inherits(Panel, _wepy$component);
 
   function Panel() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Panel);
 
-    return _possibleConstructorReturn(this, (Panel.__proto__ || Object.getPrototypeOf(Panel)).apply(this, arguments));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Panel.__proto__ || Object.getPrototypeOf(Panel)).call.apply(_ref, [this].concat(args))), _this), _this.props = {
+      items: {
+        type: Array,
+        default: []
+      }
+    }, _this.data = {
+      icon60: '../assets/images/company.png'
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   return Panel;
 }(_wepy2.default.component);
 
 exports.default = Panel;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhbmVsLmpzIl0sIm5hbWVzIjpbIlBhbmVsIiwiY29tcG9uZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQ0U7Ozs7Ozs7Ozs7OztJQUVxQkEsSzs7Ozs7Ozs7OztFQUFjLGVBQUtDLFM7O2tCQUFuQkQsSyIsImZpbGUiOiJwYW5lbC5qcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4gIGltcG9ydCB3ZXB5IGZyb20gJ3dlcHknXHJcblxyXG4gIGV4cG9ydCBkZWZhdWx0IGNsYXNzIFBhbmVsIGV4dGVuZHMgd2VweS5jb21wb25lbnQge1xyXG4gIH1cclxuIl19
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhbmVsLmpzIl0sIm5hbWVzIjpbIlBhbmVsIiwicHJvcHMiLCJpdGVtcyIsInR5cGUiLCJBcnJheSIsImRlZmF1bHQiLCJkYXRhIiwiaWNvbjYwIiwiY29tcG9uZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQ0U7Ozs7Ozs7Ozs7OztJQUVxQkEsSzs7Ozs7Ozs7Ozs7Ozs7b0xBQ25CQyxLLEdBQVE7QUFDTkMsYUFBTztBQUNMQyxjQUFNQyxLQUREO0FBRUxDLGlCQUFTO0FBRko7QUFERCxLLFFBTVJDLEksR0FBSztBQUNIQyxjQUFRO0FBREwsSzs7OztFQVA0QixlQUFLQyxTOztrQkFBbkJSLEsiLCJmaWxlIjoicGFuZWwuanMiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuICBpbXBvcnQgd2VweSBmcm9tICd3ZXB5J1xyXG5cclxuICBleHBvcnQgZGVmYXVsdCBjbGFzcyBQYW5lbCBleHRlbmRzIHdlcHkuY29tcG9uZW50IHtcclxuICAgIHByb3BzID0ge1xyXG4gICAgICBpdGVtczoge1xyXG4gICAgICAgIHR5cGU6IEFycmF5LFxyXG4gICAgICAgIGRlZmF1bHQ6IFtdXHJcbiAgICAgIH1cclxuICAgIH1cclxuICAgIGRhdGE9e1xyXG4gICAgICBpY29uNjA6ICcuLi9hc3NldHMvaW1hZ2VzL2NvbXBhbnkucG5nJ1xyXG4gICAgfVxyXG4gIH1cclxuIl19

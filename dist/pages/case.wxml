@@ -1,11 +1,23 @@
 
   <view class="stage-title">
-    <text>{{cases[index]}}</text>
+    <image  wx:if="{{index > -1}}" mode="aspectFill" src="../assets/images/case-{{index}}.jpg"/>
   </view>
   <swiper class="stage" bindchange="current">
-    <block  wx:for-items="{{cases}}" wx:key="id">
-      <swiper-item>
-        <view class="swiper-item"><image mode="aspectFill" src="../assets/images/case-{{index}}.png"/></view>      
+    <block>
+      <swiper-item  wx:for-items="{{cases}}" wx:key="id">
+        <view class="swiper-item">
+          <view class="card">
+            <image wx:if="{{index > -1}}" class="logo" src="../assets/images/case-{{index}}.jpg"/>
+            <view class="card-content">
+              <view class="title">
+                <text>{{item.title}}</text>
+              </view>
+              <view class="content">
+                <text>{{item.content}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
       </swiper-item>
     </block>
   </swiper>

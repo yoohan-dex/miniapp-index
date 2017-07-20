@@ -1,0 +1,2 @@
+@import "./../components/header.wxss";
+.article{position:absolute;top:50%}

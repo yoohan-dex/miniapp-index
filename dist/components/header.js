@@ -16,6 +16,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// <image mode="aspectFill" src="{{img}}" />
+//     <view wx:if="{{text === true}}}" class="title">
+//       <text>极最科技</text>
+//       <view>
+//         <text class="sub-title">把你的想法雕琢成真</text>
+//       </view>
+//     </view>
+
 
 var Counter = function (_wepy$component) {
   _inherits(Counter, _wepy$component);
@@ -36,9 +44,16 @@ var Counter = function (_wepy$component) {
         type: Boolean,
         default: true
       },
-      img: {
-        type: String,
-        default: '../assets/images/header.png'
+      single: {
+        type: Object,
+        default: {
+          imgUrl: '',
+          title: ''
+        }
+      },
+      list: {
+        type: Array,
+        default: []
       }
     }, _this.data = {}, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -47,4 +62,4 @@ var Counter = function (_wepy$component) {
 }(_wepy2.default.component);
 
 exports.default = Counter;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhlYWRlci5qcyJdLCJuYW1lcyI6WyJDb3VudGVyIiwicHJvcHMiLCJ0ZXh0IiwidHlwZSIsIkJvb2xlYW4iLCJkZWZhdWx0IiwiaW1nIiwiU3RyaW5nIiwiZGF0YSIsImNvbXBvbmVudCJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUNFOzs7Ozs7Ozs7Ozs7SUFFcUJBLE87Ozs7Ozs7Ozs7Ozs7O3dMQUNuQkMsSyxHQUFRO0FBQ05DLFlBQU07QUFDSkMsY0FBTUMsT0FERjtBQUVKQyxpQkFBUztBQUZMLE9BREE7QUFLTkMsV0FBSztBQUNISCxjQUFNSSxNQURIO0FBRUhGLGlCQUFTO0FBRk47QUFMQyxLLFFBV1JHLEksR0FBTyxFOzs7O0VBWjRCLGVBQUtDLFM7O2tCQUFyQlQsTyIsImZpbGUiOiJoZWFkZXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJcbiAgaW1wb3J0IHdlcHkgZnJvbSAnd2VweSdcblxuICBleHBvcnQgZGVmYXVsdCBjbGFzcyBDb3VudGVyIGV4dGVuZHMgd2VweS5jb21wb25lbnQge1xuICAgIHByb3BzID0ge1xuICAgICAgdGV4dDoge1xuICAgICAgICB0eXBlOiBCb29sZWFuLFxuICAgICAgICBkZWZhdWx0OiB0cnVlXG4gICAgICB9LFxuICAgICAgaW1nOiB7XG4gICAgICAgIHR5cGU6IFN0cmluZyxcbiAgICAgICAgZGVmYXVsdDogJy4uL2Fzc2V0cy9pbWFnZXMvaGVhZGVyLnBuZydcbiAgICAgIH1cbiAgICB9XG5cbiAgICBkYXRhID0ge1xuICAgIH1cbiAgfVxuIl19
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhlYWRlci5qcyJdLCJuYW1lcyI6WyJDb3VudGVyIiwicHJvcHMiLCJ0ZXh0IiwidHlwZSIsIkJvb2xlYW4iLCJkZWZhdWx0Iiwic2luZ2xlIiwiT2JqZWN0IiwiaW1nVXJsIiwidGl0bGUiLCJsaXN0IiwiQXJyYXkiLCJkYXRhIiwiY29tcG9uZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBUUU7Ozs7Ozs7Ozs7O0FBUEY7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7OztJQUd1QkEsTzs7Ozs7Ozs7Ozs7Ozs7d0xBQ25CQyxLLEdBQVE7QUFDTkMsWUFBTTtBQUNKQyxjQUFNQyxPQURGO0FBRUpDLGlCQUFTO0FBRkwsT0FEQTtBQUtOQyxjQUFRO0FBQ05ILGNBQU1JLE1BREE7QUFFTkYsaUJBQVM7QUFDUEcsa0JBQVEsRUFERDtBQUVQQyxpQkFBTztBQUZBO0FBRkgsT0FMRjtBQVlOQyxZQUFNO0FBQ0pQLGNBQU1RLEtBREY7QUFFSk4saUJBQVM7QUFGTDtBQVpBLEssUUFrQlJPLEksR0FBTyxFOzs7O0VBbkI0QixlQUFLQyxTOztrQkFBckJiLE8iLCJmaWxlIjoiaGVhZGVyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXG4vLyA8aW1hZ2UgbW9kZT1cImFzcGVjdEZpbGxcIiBzcmM9XCJ7e2ltZ319XCIgLz5cbi8vICAgICA8dmlldyB3eDppZj1cInt7dGV4dCA9PT0gdHJ1ZX19fVwiIGNsYXNzPVwidGl0bGVcIj5cbi8vICAgICAgIDx0ZXh0PuaegeacgOenkeaKgDwvdGV4dD5cbi8vICAgICAgIDx2aWV3PlxuLy8gICAgICAgICA8dGV4dCBjbGFzcz1cInN1Yi10aXRsZVwiPuaKiuS9oOeahOaDs+azlembleeQouaIkOecnzwvdGV4dD5cbi8vICAgICAgIDwvdmlldz5cbi8vICAgICA8L3ZpZXc+XG4gIGltcG9ydCB3ZXB5IGZyb20gJ3dlcHknXG5cbiAgZXhwb3J0IGRlZmF1bHQgY2xhc3MgQ291bnRlciBleHRlbmRzIHdlcHkuY29tcG9uZW50IHtcbiAgICBwcm9wcyA9IHtcbiAgICAgIHRleHQ6IHtcbiAgICAgICAgdHlwZTogQm9vbGVhbixcbiAgICAgICAgZGVmYXVsdDogdHJ1ZVxuICAgICAgfSxcbiAgICAgIHNpbmdsZToge1xuICAgICAgICB0eXBlOiBPYmplY3QsXG4gICAgICAgIGRlZmF1bHQ6IHtcbiAgICAgICAgICBpbWdVcmw6ICcnLFxuICAgICAgICAgIHRpdGxlOiAnJ1xuICAgICAgICB9XG4gICAgICB9LFxuICAgICAgbGlzdDoge1xuICAgICAgICB0eXBlOiBBcnJheSxcbiAgICAgICAgZGVmYXVsdDogW11cbiAgICAgIH1cbiAgICB9XG5cbiAgICBkYXRhID0ge1xuICAgIH1cbiAgfVxuIl19

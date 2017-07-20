@@ -1,43 +1,38 @@
 <style lang="less">
   .panel {
-    width: 100%;
-    margin-top: 20rpx;
-    text-align: left;
-    font-size: 12px;
-    padding-top: 20rpx;
-    padding-left: 50rpx;
-    padding-bottom: 20rpx;
-    border: 1px solid #ccc;
-
-    .title {
-      padding-bottom: 20rpx;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    .info {
-      padding: 15rpx;
-    }
-    .testcounter {
-      margin-top: 15rpx;
-      position: absolute;
-    }
-    .counterview {
-      margin-left: 120rpx;
-    }
+    position: absolute;
+    top: 50%;
   }
 </style>
 <template>
-  <view class="panel">
-    <slot name="title">
-      Title
-    </slot>
-    <slot>
-    </slot>
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+        <block wx:for="{{items}}">
+          <navigator url="{{item.url}}" open-type="navigate" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{item.imgUrl}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{item.title}}</view>
+              <view class="weui-media-box__desc">{{item.desc}}</view>
+            </view>
+          </navigator>
+        </block>
+      </view>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
 
   export default class Panel extends wepy.component {
+    props = {
+      items: {
+        type: Array,
+        default: []
+      }
+    }
+    data={
+      icon60: '../assets/images/company.png'
+    }
   }
 </script>

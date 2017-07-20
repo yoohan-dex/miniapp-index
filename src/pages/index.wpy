@@ -1,48 +1,148 @@
 <style lang="less">
-  .userinfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.html {
+  position: absolute;
+  width: 100%;
+  height: 56%;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+}/* Animations */
 
-  .userinfo-avatar {
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
+@keyframes spin {
+  
+  from {
+    transform: rotate( 0deg );
   }
+  
+  to {
+    transform: rotate( 360deg );
+  }
+}
 
-  .userinfo-nickname {
-    color: #aaa;
+/* Global */
+
+
+.body {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  height: 100%;
+}
+
+/* Space */
+
+.space {
+  position: absolute;
+  width: 400vw;
+  height: 400vh;
+  top: 50%;
+  left: 50%;
+  margin-top: -200vh;
+  margin-left: -200vw;
+  animation: spin 240s linear infinite;
+  background-size: 140px;
+  backface-visibility: visible;
+  
+  /* Had to base64 SVG background for FF compatibility */
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI0MCAyNDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0MCAyNDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxyZWN0IHg9IjEwNiIgeT0iOTAiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz48cmVjdCB4PSI3NCIgeT0iNjMiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIyMyIgeT0iNjYiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSI1MCIgeT0iMTEwIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iNjMiIHk9IjEyOCIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjQ1IiB5PSIxNDkiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSI5MiIgeT0iMTUxIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iNTgiIHk9IjgiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxNDciIHk9IjMzIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIi8+PHJlY3QgeD0iOTEiIHk9IjQzIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iMTY5IiB5PSIyOSIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjE4MiIgeT0iMTkiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxNjEiIHk9IjU5IiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iMTM4IiB5PSI5NSIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjE5OSIgeT0iNzEiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiLz48cmVjdCB4PSIyMTMiIHk9IjE1MyIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPjxyZWN0IHg9IjEyOCIgeT0iMTYzIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iMjA1IiB5PSIxNzQiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxNTIiIHk9IjIwMCIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjUyIiB5PSIyMTEiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz48cmVjdCB5PSIxOTEiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxMTAiIHk9IjE4NCIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjwvc3ZnPg==);
+
+  
+}
+.title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  
+  color: #FFF;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 10rpx;
+  
+  margin-top: -60rpx;
+  padding-left: 10rpx;
+  text {
+    background: -webkit-linear-gradient(white, #38495a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
+  .sup {
+    font-size: 70rpx;
+  }
+  .sub {
+    font-size: 50rpx;    
+  }
+}
 </style>
 <template>
-  <view>
-    <header />
-    <category />
+  <view class="html">
+    <view class="body">
+      <view class="space" />
+      <view class="title">
+        <text class="sup">Next Future</text>
+        <view></view>
+        <text class="sub">专业</text>
+      </view>
+    </view>
   </view>
 </template>
 
 <script>
   
   import wepy from 'wepy'
-  import Header from '../components/header'
-  import Stage from '../components/stage'
-  import Category from '../components/category'
-  // <view class="userinfo" @tap="handleViewTap">
-  //   <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
-  //   <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
-  // </view>
+  // import Header from '../components/header'
+  // import Stage from '../components/stage'
+  // import Panel from '../components/panel'
   export default class Index extends wepy.page {
+    // <header :list="list" />
+    // <view class="news">
+    //   <panel :items="list" />
+    // </view>
     components = {
-      header: Header,
-      stage: Stage,
-      category: Category
+      // header: Header,
+      // stage: Stage,
+      // panel: Panel
     }
     config = {
-      navigationBarTitleText: '极最科技'
+      navigationBarTitleText: '极最孵化器'
     }
 
     data = {
+      list: [
+        {
+          title: '李克强总理4日考察广州极最孵化器',
+          imgUrl: '../assets/images/company.png',
+          desc: '李克强总理4日考察广州极最孵化器,亲切问候极最创始人林友新，双方进行了深切的会谈，进一步加深了友好的合作。',
+          url: './article?id=123'
+        }, {
+          title: '李克强总理4日考察广州极最孵化器',
+          imgUrl: '../assets/images/company.png',
+          desc: '李克强总理4日考察广州极最孵化器,亲切问候极最创始人林友新，双方进行了深切的会谈，进一步加深了友好的合作。',
+          url: ''
+        }, {
+          title: '李克强总理4日考察广州极最孵化器',
+          imgUrl: '../assets/images/company.png',
+          desc: '李克强总理4日考察广州极最孵化器,亲切问候极最创始人林友新，双方进行了深切的会谈，进一步加深了友好的合作。',
+          url: ''
+        }, {
+          title: '李克强总理4日考察广州极最孵化器',
+          imgUrl: '../assets/images/company.png',
+          desc: '李克强总理4日考察广州极最孵化器,亲切问候极最创始人林友新，双方进行了深切的会谈，进一步加深了友好的合作。',
+          url: ''
+        }, {
+          title: '李克强总理4日考察广州极最孵化器',
+          imgUrl: '../assets/images/company.png',
+          desc: '李克强总理4日考察广州极最孵化器,亲切问候极最创始人林友新，双方进行了深切的会谈，进一步加深了友好的合作。',
+          url: ''
+        }, {
+          title: '李克强总理4日考察广州极最孵化器',
+          imgUrl: '../assets/images/company.png',
+          desc: '李克强总理4日考察广州极最孵化器,亲切问候极最创始人林友新，双方进行了深切的会谈，进一步加深了友好的合作。',
+          url: ''
+        }, {
+          title: '李克强总理4日考察广州极最孵化器',
+          imgUrl: '../assets/images/company.png',
+          desc: '李克强总理4日考察广州极最孵化器,亲切问候极最创始人林友新，双方进行了深切的会谈，进一步加深了友好的合作。',
+          url: ''
+        }
+      ],
       userInfo: {
         nickName: '加载中...'
       }

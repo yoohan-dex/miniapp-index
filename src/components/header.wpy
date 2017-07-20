@@ -11,29 +11,39 @@
 
     & .title {
       position: relative;
-      top: -50%;
+      top:  -30%;
       background: rgba(255,255,255,0.8);
       padding: 20rpx;
-      font-size: 60rpx;
-    }
-
-    & .sub-title {
       font-size: 40rpx;
+      line-height: 2;
     }
   }
 </style>
 <template>
-  <view class="header">
-    <image mode="aspectFill" src="{{img}}" />
-    <view wx:if="{{text === true}}}" class="title">
-      <text>极最科技</text>
-      <view>
-        <text class="sub-title">把你的想法雕琢成真</text>
-      </view>
+  
+    <swiper class="header" autoplay="true" circular="true">
+      <block wx:if="{{list}}" wx:for="{{list}}">
+        <swiper-item>
+          <image src="{{item.imgUrl}}" />
+          <view wx:if="{{item.title}}" class="title"><text>{{item.title}}</text></view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="header">
+      <block wx:if="{{single}}">
+          <image src="{{single.imgUrl}}" />
+          <view wx:if="{{single.title}}" class="title"><text>{{single.title}}</text></view>
+      </block>
     </view>
-  </view>
 </template>
 <script>
+// <image mode="aspectFill" src="{{img}}" />
+//     <view wx:if="{{text === true}}}" class="title">
+//       <text>极最科技</text>
+//       <view>
+//         <text class="sub-title">把你的想法雕琢成真</text>
+//       </view>
+//     </view>
   import wepy from 'wepy'
 
   export default class Counter extends wepy.component {
@@ -42,9 +52,16 @@
         type: Boolean,
         default: true
       },
-      img: {
-        type: String,
-        default: '../assets/images/header.png'
+      single: {
+        type: Object,
+        default: {
+          imgUrl: '',
+          title: ''
+        }
+      },
+      list: {
+        type: Array,
+        default: []
       }
     }
 

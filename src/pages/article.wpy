@@ -1,0 +1,88 @@
+<style lang="less">
+  .article {
+    position: absolute;
+    top: 50%;
+  }
+</style>
+<template>
+    <header :single="article" />
+    <view class="article">
+      <view class="weui-article">
+        <view class="weui-article">
+            <view class="weui-article__h1">大标题</view>
+            <view class="weui-article__section">
+                <view class="weui-article__title">章标题</view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">1.1 节标题</view>
+                    <view class="weui-article__p">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.
+                    </view>
+                    <view class="weui-article__p">
+                        <image class="weui-article__img" src="../assets/images/company.png" mode="aspectFit" style="height: 180px" />
+                        <image class="weui-article__img" src="../assets/images/company.png" mode="aspectFit" style="height: 180px" />
+                    </view>
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">1.2 节标题</view>
+                    <view class="weui-article__p">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </view>
+                </view>
+            </view>
+        </view>
+      </view>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Header from '../components/header'
+  export default class Index extends wepy.page {
+    components = {
+      header: Header
+    }
+    config = {
+      navigationBarTitleText: '文章'
+    }
+
+    data = {
+      article: {
+        imgUrl: '../assets/images/company.png',
+        title: 'hello'
+      },
+      img: '../assets/images/company.png',
+      markers: [{
+        latitude: '23.1615800000',
+        longitude: '113.4330300000',
+        iconPath: '/assets/images/jz-active.png',
+        height: 30,
+        width: 30
+      }]
+    }
+    async onLoad(res) {
+      console.log(res)
+    }
+    onShareAppMessage(res) {
+      if (res.from === 'button') {
+      // 来自页面内转发按钮
+        console.log(res.target)
+      }
+      return {
+        title: '极最科技',
+        path: '/pages/index',
+        success: function(res) {
+          // 转发成功
+        },
+        fail: function(res) {
+          // 转发失败
+        }
+      }
+    }
+  }
+</script>
